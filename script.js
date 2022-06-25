@@ -1,32 +1,35 @@
-const sizeUp = document.querySelector('.sizeUp')
-const sizeDown = document.querySelector('.sizeDown')
-const button = document.querySelector('.color')
-const p = document.querySelector('p')
-let number = 36
+const pass = document.querySelector('#password');
+const p = document.querySelector('.passinfo');
+const letters = /[a-z]/i;
+const numbers = /[0-9]/;
+const special = /[!@#$%^&*()]/;
+const minValue = 10;
+let password 
 
-console.log(sizeUp, sizeDown, button, p)
+// console.log(pass, p, letters, numbers, special, minValue)
 
-
-const enlarge = () => {
-  number += 5
-  p.style.fontSize = `${number}px`
+const changedValue = () => {
+  console.log(pass.value.length)
+  if (pass.value.length >= 10 && letters.test(pass.value) && numbers.test(pass.value) && special.test(pass.value)) {
+    p.style.color = 'green'
+    p.textContent = 'Masz  bardzo dobre hasło :)'
+  } else if (pass.value.length >= minValue && letters.test(pass.value) && numbers.test(pass.value)) {
+    p.style.color = 'green'
+    p.textContent = 'Masz dobre hasło :)'
+  } else {
+    p.style.color = 'red'
+    p.textContent = 'Masz słabe hasło!' 
+  }
 }
 
-const reduce = () => {
-  if (number <= 10) 
-    return
-    number -= 5
-  p.style.fontSize = `${number}px`
+const checkPassword = (e) => {
+  if (e.target.value !== '') {
+    changedValue()
+  } else {
+    p.style.color = ''
+    p.textContent = 'Nie podałeś hasła...'
+  }
 }
 
-const changeColor = () => {
-  const r = Math.floor(Math.random() * 255)
-  const g = Math.floor(Math.random() * 255)
-  const b = Math.floor(Math.random() * 255)
 
-  p.style.color = `rgb(${r}, ${g}, ${b})`
-}
-
-sizeUp.addEventListener('click', enlarge)
-sizeDown.addEventListener('click', reduce)
-button.addEventListener('click', changeColor)
+pass.addEventListener('input', checkPassword)
