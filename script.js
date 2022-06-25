@@ -1,35 +1,47 @@
-const pass = document.querySelector('#password');
-const p = document.querySelector('.passinfo');
-const letters = /[a-z]/i;
-const numbers = /[0-9]/;
-const special = /[!@#$%^&*()]/;
-const minValue = 10;
-let password 
+const input = document.querySelector('input')
+const btnConvert = document.querySelector('.conv')
+const btnReset = document.querySelector('.reset')
+const btnChange = document.querySelector('.change')
+const one = document.querySelector('.one')
+const two = document.querySelector('.two')
+const result = document.querySelector('.result')
+let temp
+let fahrenheit
+let celsius
 
-// console.log(pass, p, letters, numbers, special, minValue)
 
-const changedValue = () => {
-  console.log(pass.value.length)
-  if (pass.value.length >= 10 && letters.test(pass.value) && numbers.test(pass.value) && special.test(pass.value)) {
-    p.style.color = 'green'
-    p.textContent = 'Masz  bardzo dobre hasło :)'
-  } else if (pass.value.length >= minValue && letters.test(pass.value) && numbers.test(pass.value)) {
-    p.style.color = 'green'
-    p.textContent = 'Masz dobre hasło :)'
+const getTemp = () => {
+  temp = input.value
+}
+
+const convert = () => {
+  if (one.textContent == '°C') {
+  fahrenheit = (temp * 9/5) + 32
+  result.textContent = `${temp}°C = ${fahrenheit}°F`
   } else {
-    p.style.color = 'red'
-    p.textContent = 'Masz słabe hasło!' 
+    celsius = (temp - 32) * 5/9
+    result.textContent = `${temp}°F = ${celsius}°C`
   }
 }
 
-const checkPassword = (e) => {
-  if (e.target.value !== '') {
-    changedValue()
-  } else {
-    p.style.color = ''
-    p.textContent = 'Nie podałeś hasła...'
-  }
+const reset = () => {
+  input.value = ''
+  result.textContent = ''
 }
 
+const change = () => {
+  console.log(one, two)
+  if (one.textContent == '°C') {
+    one.textContent = '°F'
+    two.textContent = '°C'
+  } else {
+    one.textContent = '°C'
+    two.textContent = '°F'
+  }
+  result.textContent = ''
+}
 
-pass.addEventListener('input', checkPassword)
+input.addEventListener('input', getTemp)
+btnConvert.addEventListener('click', convert)
+btnReset.addEventListener('click', reset)
+btnChange.addEventListener('click', change)
