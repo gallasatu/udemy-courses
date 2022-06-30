@@ -13,31 +13,32 @@
   
 </head>
 <body>
-  <div class="todo">
-    <div class="header">
-        <h1>ToDo List</h1>
-        <input type="text" class="todo-input" placeholder="Wpisz treść zadania...">
-        <button class="btn-add">Add</button>
-    </div>
-    <div class="todolist">
-        <h3>Lista zadań:</h3>
-        <p class="error-info">Brak zadań na liście.</p>
-        <ul>
-            
-        </ul>
-    </div>
-</div>
+  
+  <style>
+    button{
+    padding: 20px 40px;
+    margin: 20px;
+    cursor: pointer;
+    background: none;
+    color: #fff;
+    font-size: 18px;
+    border: 3px solid #ddd;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
 
-<div class="popup">
-    <h3>Edytuj zadanie:</h3>
-    <div class="popup-body">
-        <p class="popup-info"></p>
-        <input type="text" class="popup-input" placeholder="Wprowadź nową treść zadania...">
-        <button class="popup-btn accept">Zatwierdź</button>
-        <button class="popup-btn cancel">Anuluj</button>
-    </div>
-</div>
-
+button:hover {
+    background-color: #ddd;
+    color: #000;
+}
+  </style>
+  <div class="buttons">
+    <button class="btn-1">#1</button>
+    <button class="btn-2">#2</button>
+    <button class="btn-3">#3</button>
+  </div>
+  <p></p>
   <script src="script.js"></script>
 </body>
 </html>
