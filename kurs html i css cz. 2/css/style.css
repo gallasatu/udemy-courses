@@ -6,194 +6,75 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  font-size: 30px;
-  color: #fff;
   background-color: #333;
+  font-size: 50px;
 }
 
-.sky {
-  position: relative;
-  height: 60vh;
-  background-color: royalblue;
-  -webkit-animation: night 5s alternate infinite;
-          animation: night 5s alternate infinite;
+section {
+  display: flex;
+  margin: 20px 0;
+  height: 300px;
+  border: 5px solid black;
 }
 
-.sun {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 90px;
-  height: 90px;
+.square {
+  width: 200px;
+  text-align: center;
+}
+
+.one {
   background-color: gold;
-  box-shadow: 0 0 50px gold;
-  border-radius: 50%;
-  -webkit-animation: sun 5s alternate infinite;
-          animation: sun 5s alternate infinite;
 }
 
-.ground {
-  position: relative;
-  height: 40vh;
-  background-color: rgb(80, 61, 61);
-}
-
-.grass {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 200px;
+.two {
   background-color: lime;
 }
 
-.road {
-  position: absolute;
-  top: 30px;
-  width: 100%;
-  height: 120px;
-  background-color: gray;
+.three {
+  background-color: royalblue;
 }
 
-.car {
-  position: absolute;
-  top: -15px;
-  left: 200px;
-  width: 150px;
-  height: 70px;
-  background-color: tomato;
-  border-radius: 15px;
-  -webkit-animation: car 10s infinite;
-          animation: car 10s infinite;
-}
-
-.car::before,
-.car::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 40px;
-  height: 35px;
+.four {
   background-color: tomato;
 }
 
-.car::after {
-  right: -20px;
-  border-top-right-radius: 10px;
+.first {
+  display: flex;
+  flex-direction: column;
+}
+.first .two,
+.first .four {
+  flex-grow: 1;
 }
 
-.car::before {
-  left: -20px;
+.second {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.window {
-  position: absolute;
-  top: 5px;
-  width: 50px;
-  height: 30px;
-  background-color: blue;
-  border: 2px solid black;
+.third {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.third .three {
+  order: 1;
+}
+.third .one {
+  flex-grow: 1;
+}
+.third .four {
+  flex-grow: 3;
 }
 
-.front-window {
-  left: 100px;
-  border-top-right-radius: 40%;
+.fourth {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
 }
-
-.rear-window {
-  border-top-left-radius: 40%;
+.fourth .two {
+  align-self: flex-start;
 }
-
-.wheels {
-  position: absolute;
-  top: 50px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  background-color: black;
-  border: 2px dashed gray;
-  -webkit-animation: wheels 2s infinite linear;
-          animation: wheels 2s infinite linear;
-}
-
-.front-wheel {
-  left: 100px;
-  z-index: 1;
-}
-
-@-webkit-keyframes sun {
-  0% {
-    top: 10%;
-  }
-  20% {
-    top: 10%;
-  }
-  100% {
-    top: 130%;
-  }
-}
-
-@keyframes sun {
-  0% {
-    top: 10%;
-  }
-  20% {
-    top: 10%;
-  }
-  100% {
-    top: 130%;
-  }
-}
-@-webkit-keyframes night {
-  0% {
-    background-color: royalblue;
-  }
-  20% {
-    background-color: royalblue;
-  }
-  100% {
-    background-color: black;
-  }
-}
-@keyframes night {
-  0% {
-    background-color: royalblue;
-  }
-  20% {
-    background-color: royalblue;
-  }
-  100% {
-    background-color: black;
-  }
-}
-@-webkit-keyframes car {
-  from {
-    left: -500px;
-  }
-  to {
-    left: 3000px;
-  }
-}
-@keyframes car {
-  from {
-    left: -500px;
-  }
-  to {
-    left: 3000px;
-  }
-}
-@-webkit-keyframes wheels {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes wheels {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fourth .three {
+  align-self: center;
 }/*# sourceMappingURL=style.css.map */
